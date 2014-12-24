@@ -29,11 +29,10 @@ files[php][] = vendor/autoload.php```
 
 - Clone this repo into "DOCROOT/sites/all/modules/cloud_files"
 
-- If you're NOT using Rackspace Cloud, or your targetting a Container OUTSIDE of your Region, you'll need to disable the use of ServiceNet, which my fork enables by default. You must remove the 'internalUrl' string from the calls to the Storage Service. Those references can be found here:
-```$ fgrep -R 'internalUrl' *
-cloud_files.module:      $object_store_service = $client->objectStoreService('cloudFiles', $rackspace_cloud_region, 'internalUrl');
-cloud_files.module:        $object_store_service = $client->objectStoreService('cloudFiles', $region, 'internalUrl');
-rackspacecloudfiles_streams.inc:    $object_store_service = $client->objectStoreService('cloudFiles', variable_get('rackspace_cloud_region'), 'internalUrl');```
+- If you're NOT using Rackspace Cloud, or your targetting a Container OUTSIDE of your Region, you'll need to disable the use of ServiceNet, which my fork enables by default. You must remove the 'internalUrl' string from the calls to the Storage Service. Those references can be found here (there are only 3 references):
+
+```$ fgrep -R 'internalUrl' *```
+
 Remove the 3rd argument 'internalUrl', entirely. Better yet - move to Rackspace Cloud and use ServiceNet :P
 
 - Enable the "Libraries" module, then the Cloud Files module.
