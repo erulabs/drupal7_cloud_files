@@ -33,8 +33,7 @@ files[php][] = vendor/autoload.php```
 ```$ fgrep -R 'internalUrl' *
 cloud_files.module:      $object_store_service = $client->objectStoreService('cloudFiles', $rackspace_cloud_region, 'internalUrl');
 cloud_files.module:        $object_store_service = $client->objectStoreService('cloudFiles', $region, 'internalUrl');
-rackspacecloudfiles_streams.inc:    $object_store_service = $client->objectStoreService('cloudFiles', variable_get('rackspace_cloud_region'), 'internalUrl');
-```
+rackspacecloudfiles_streams.inc:    $object_store_service = $client->objectStoreService('cloudFiles', variable_get('rackspace_cloud_region'), 'internalUrl');```
 Remove the 3rd argument 'internalUrl', entirely. Better yet - move to Rackspace Cloud and use ServiceNet :P
 
 - Enable the "Libraries" module, then the Cloud Files module.
