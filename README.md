@@ -1,4 +1,5 @@
 Installation
+===============
 
 - Download and install the Libraries (7.x-2.x branch) module
   http://drupal.org/project/libraries
@@ -12,6 +13,12 @@ Installation
   1. ```mkdir DOCROOT/sites/all/libraries/php-opencloud```
   2. ```cd DOCROOT/sites/all/libraries/php-opencloud```
   3. ```composer require rackspace/php-opencloud```
+
+- Via chef (release_path an example of using the Application resource):
+```composer_package 'rackspace/php-opencloud' do
+  action :create_project
+  install_path "#{release_path}/sites/all/libraries/php-opencloud"
+end```
 
 - Create a "php-opencloud.libraries.info" file in "DOCROOT/sites/all/libraries" with the following content:
 ```name = php-opencloud
