@@ -35,11 +35,7 @@ files[php][] = vendor/autoload.php
 
 - Clone this repo into "DOCROOT/sites/all/modules/cloud_files"
 
-- If you're NOT using Rackspace Cloud, or your targetting a Container OUTSIDE of your Region, you'll need to disable the use of ServiceNet, which my fork enables by default. You must remove the 'internalUrl' string from the calls to the Storage Service. Those references can be found here (there are only 3 references):
-
-```$ fgrep -R 'internalUrl' *```
-
-Remove the 3rd argument 'internalUrl', entirely. Better yet - move to Rackspace Cloud and use ServiceNet :P
+- If you're NOT using Rackspace Cloud, or you're targetting a Container OUTSIDE of your Region, you'll need to disable the use of ServiceNet, which my fork enables by default. You must remove the 'internalUrl' string from the calls to the Storage Service. Those references can be found here (there are only 3 references): ```$ fgrep -R 'internalUrl' *``` Remove the 3rd argument 'internalUrl', entirely. Better yet - move to Rackspace Cloud and use ServiceNet :P
 
 - Enable the "Libraries" module, then the Cloud Files module.
 
@@ -48,6 +44,6 @@ Remove the 3rd argument 'internalUrl', entirely. Better yet - move to Rackspace 
 - Visit admin/config/media/file-system and set the Default download method to
   Rackspace Cloud Files.
 
-- Depending on your configuration, you may need to use the CDN module to force URLs to the Rackspace Cloud.
+- Depending on your configuration, you may need to use the CDN module to force URLs to the Rackspace Cloud. Your mileage may vary.
 
-- Add a field of type File or Image etc and set the Upload destination to Rackspace Cloud Files in the Field Settings tab.
+- Add a field of type File or Image etc and set the Upload destination to Rackspace Cloud Files in the Field Settings tab. You will need to ensure all fields which upload files (images, typically) are modified to target cloud files
